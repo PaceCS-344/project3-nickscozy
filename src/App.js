@@ -1,37 +1,53 @@
+import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom'; // CHANGED: added router imports
 import Home from './pages/Home';       // CHANGED: import pages
 import Resume from './pages/Resume';
 import Projects from './pages/Projects';
 
 export default function App() {
+  const [darkMode, setDarkMode] = useState(false); // CHANGED: track dark/light mode  
+  const [menuOpen, setMenuOpen] = useState(false); // CHANGED: track menu open/close
+
+
   return (
-    <>
+    /* CHANGED: added light-mode class */
+    <div className={darkMode ? 'dark-mode' : 'light-mode'}>
       <div className="header">
-        <Title />
-        <nav className="box-container"> {/* CHANGED: replaced Links component with nav */}
-          <Link to="/" className="box">Home</Link>
-          <Link to="/resume" className="box">Resume</Link>
-          <Link to="/projects" className="box">Projects</Link>
-          <a href="mailto:nicholasaramburu@gmail.com" className="box">Email</a>
-          <a href="https://github.com/nickscozy" className="box" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://linkedin.com/in/naramburu" className="box" target="_blank" rel="noreferrer">LinkedIn</a>
+
+        {/* CHANGED: hamburger and title grouped on the left */}
+        <div className="header-left">
+          <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+            ☰
+          </button>
+        <div className="white-text">
+          <h1>Nicholas Aramburu</h1>
+        </div>
+        </div>
+        <nav className="box-container">
+          {/* CHANGED: removed Home, Resume, Projects from here */}
+          <button className="box" onClick={() => setDarkMode(!darkMode)}>
+            {darkMode ? 'Light' : 'Dark'}
+          </button>
         </nav>
       </div>
-
+      {/* CHANGED: dropdown menu appears when hamburger is clicked */}
+      {menuOpen && (
+        <>
+          {/* CHANGED: dark overlay that closes menu when clicked */}
+          <div className="menu-overlay" onClick={() => setMenuOpen(false)} />
+          <div className="dropdown-menu">
+            <Link to="/" className="dropdown-item" onClick={() => setMenuOpen(false)}>Home</Link>
+            <Link to="/resume" className="dropdown-item" onClick={() => setMenuOpen(false)}>Resume</Link>
+            <Link to="/projects" className="dropdown-item" onClick={() => setMenuOpen(false)}>Projects</Link>
+          </div>
+        </>
+      )}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/projects" element={<Projects />} />
       </Routes>
-    </>
+    </div>
   );
 }
 // Find out how to implement bootstrap!!!!!!!!!!!!!!!
-
-function Title(){
-  return(
-    <div className="white-text">
-      <h1>Digital Portfolio</h1>
-    </div>
-  )
-}

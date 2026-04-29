@@ -5,7 +5,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: rgb(94, 126, 106);
 }
 
 .header {
@@ -14,11 +13,14 @@
   align-items: center;
   padding: 20px 40px;
   background-color: #4a5c4f;  /* CHANGED: added dark green background */
-  /*border-bottom: 3px solid #0a3018; */
+  /*border-bottom: .2px solid #040a06;*/
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* CHANGED: shadow under header */
+
+  position: sticky;
+  top: 0;
+  z-index: 300;
 }
 
-/* CHANGED: make sure inner elements don't inherit body background */
 .header * {
   background-color: transparent;
 }
@@ -40,7 +42,7 @@ a {
 .box {
   width: 70px;
   height: 50px;
-  background-color: #b7c9bc;
+  background-color: #96caa5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,8 +66,8 @@ a {
 
 /* Information card */
 .full-card {
-  background-color: white;
-  margin: 20px 40px;
+  background-color: rgb(240, 255, 240);
+  margin: 40px 100px; /* Change margins of white card. First is top/bottom, Second is Left/Right*/
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   padding: 30px;
@@ -87,7 +89,8 @@ a {
   /* height: 200px; */
   object-fit: cover;       /* stops image from stretching */
   border-radius: 10px;     /* rounded corners */
-  margin-bottom: 15px;     /* space between image and text */
+  margin-left: 30px;     /* space between image and text */
+  margin-right: 30px;
 }
 
 .card-text-section {
@@ -96,6 +99,34 @@ a {
   align-items: center;      /* centers them horizontally */
   text-align: center;       /* centers the text inside */
   flex: 1;                  /* takes up all remaining space left of the image */
+  margin: 40px              /* Margin for inside card text left/right */
+}
+
+/* CHANGED: container for links inside the card */
+.card-links {
+  display: flex;
+  flex-direction: row;      /* horizontal layout */
+  gap: 15px;
+  margin-top: auto;         /* pushes links to the bottom */
+  padding-top: 20px;
+}
+
+.card-link-box {
+  width: 70px;
+  height: 40px;
+  background-color: #96caa5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.card-link-box:hover {
+  background-color: #ca9be9;
 }
 
 /**/
@@ -107,4 +138,159 @@ a {
 .university-card {
     font-family: 'EB Garamond', serif;
     font-size: 30px;
+}
+
+/* CHANGED: groups hamburger and title on the left */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* CHANGED: hamburger button */
+.hamburger {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.hamburger:hover {
+  color: #ca9be9;
+}
+
+/* CHANGED: dropdown menu below header */
+/* CHANGED: side menu that slides in from the left */
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #4a5c4f;
+  padding: 20px;
+  gap: 10px;
+  position: fixed;        /* CHANGED: fixed so it overlays the page */
+  top: 81px;;
+  left: 0;
+  height: 100vh;          /* CHANGED: full height of screen */
+  width: 220px;           /* CHANGED: width of the side menu */
+  z-index: 200;
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.3);
+
+  /* CHANGED: slide in animation */
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+/* CHANGED: each link in the side menu */
+.dropdown-item {
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 20px;       /* space items from the top */
+}
+
+.dropdown-item:hover {
+  background-color: #ca9be9;
+  color: white;
+}
+
+/* CHANGED: dark overlay behind the menu when open */
+.menu-overlay {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100vw;
+  height: 100vw;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 199;
+}
+
+/* Dark mode necessities */
+.dark-mode * {
+  background-color: transparent;
+}
+
+/* CHANGED: make dark mode fill the whole screen */
+.dark-mode {
+  background-color: #1a1a1a;
+  min-height: 100vh;
+}
+
+.dark-mode .header {
+  background-color: #2a2a2a;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .full-card {
+  background-color: #2d2d2d;
+  color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .full-card * {
+  color: white;
+}
+
+.dark-mode .box {
+  background-color: #444;
+  color: white;
+}
+
+.dark-mode .box:hover {
+  background-color: #ca9be9;
+}
+
+.dark-mode .card-link-box {
+  background-color: #444;
+  color: white;
+}
+
+.dark-mode .card-link-box:hover {
+  background-color: #ca9be9;
+}
+
+/* CHANGED: remove default button styles so it looks like your boxes */
+button.box {
+  border: none;
+  font-family: inherit;
+}
+
+html, body, #root {
+  min-height: 100vh;
+}
+
+/* CHANGED: light mode class to fill full screen */
+.light-mode {
+  min-height: 100vh;
+  background-color: rgb(94, 126, 106);
+}
+
+/* CHANGED: make root div stretch to fill full height */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.light-mode, .dark-mode {
+  flex: 1;  /* CHANGED: makes the mode div stretch to fill all remaining space */
+  min-height: 100vh;
+}
+
+/* CHANGED: dark mode for dropdown */
+.dark-mode .dropdown-menu {
+  background-color: #2a2a2a;
+}
+
+.dark-mode .hamburger {
+  color: white;
+}
+
+/* CHANGED: prevent dark mode from overriding overlay background */
+.dark-mode .menu-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
 }

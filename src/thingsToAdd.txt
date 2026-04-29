@@ -1,0 +1,37 @@
+I'm having a lot of fun with this. Here's what I want to do
+- Make navigation boxes look better
+
+
+- Add a navigation box for a password and easter eggs? 
+
+Lab 2 options (Choose 3):
+a.	Sticky header / headings / footer
+    i.	Pin headers and/or section headings and/or a footer to the top of the screen while scrolling
+    ii.	Example: https://react.dev/learn (watch the top of the screen on desktop/laptop)
+b.	Animated tiles/cards for Skills and/or Projects sections
+    i.	Animate some interactive behavior
+    ii.	Example: https://lightswind.com/components/interactive-card 
+c.	Theme switcher 
+    i.	Light/dark/color background themes
+    ii.	Example: https://codepen.io/michellebarker/pen/GzzrGJ 
+d.	Hamburger menu
+    i.	Expandable menu (especially for mobile versions)
+    ii.	Example: https://codepen.io/piyushpd139/pen/jOyJgww 
+e.	Read more/less expanders on sections
+    i.	Accordion style expanders
+    ii.	Example: https://codepen.io/matthewvincent/pen/EKKeyX 
+f.	Projects/skills search bar, tags
+    i.	Add a search bar for filtering highlighted projects by tag (PHP, react, UI, MariaDB, etc.)
+    ii.	Example: https://codepen.io/jonahvsweb/pen/LGVRaX 
+g.	Easter eggs
+    i.	Clicking/hovering some elements reveals details or an animation
+    ii.	Example: https://codepen.io/tholman/pen/kxPXwX 
+
+
+
+Much much later:
+- Add a survey for whoever comes to my digital portfolio asking for:
+    - Why did you come to my digital portfolio?: Job/internship, or other means
+    - What company are you with?
+    - etc etc
+    This way I can see who didn't even bother looking, what ratio of jobs actually look at digital portfolios, etc. For research
