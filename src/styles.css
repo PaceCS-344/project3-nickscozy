@@ -7,12 +7,18 @@
   box-sizing: border-box;
 }
 
+/* CHANGED: light mode class to fill full screen */
+.light-mode {
+  min-height: 100vh;
+  background-color: rgb(94, 126, 106);
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color: #4a5c4f;  /* CHANGED: added dark green background */
+  background-color: #3d5343;  /* CHANGED: added dark green background */
   /*border-bottom: .2px solid #040a06;*/
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* CHANGED: shadow under header */
 
@@ -261,12 +267,6 @@ button.box {
 
 html, body, #root {
   min-height: 100vh;
-}
-
-/* CHANGED: light mode class to fill full screen */
-.light-mode {
-  min-height: 100vh;
-  background-color: rgb(94, 126, 106);
 }
 
 /* CHANGED: make root div stretch to fill full height */

@@ -1,0 +1,7 @@
+1. Open your terminal in VS Code
+2. Make sure you're in your project folder
+3. Start the server. Run this in terminal: 
+    npm start
+4. Wait for it to say:
+    Compiled successfully!
+    Local: http://localhost:3000

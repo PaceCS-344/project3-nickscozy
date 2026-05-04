@@ -30,6 +30,7 @@ g.	Easter eggs
 
 
 Much much later:
+Cover page with title and other components bringing you to home
 - Add a survey for whoever comes to my digital portfolio asking for:
     - Why did you come to my digital portfolio?: Job/internship, or other means
     - What company are you with?
