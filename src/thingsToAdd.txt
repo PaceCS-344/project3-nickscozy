@@ -1,6 +1,6 @@
 I'm having a lot of fun with this. Here's what I want to do
-- Make navigation boxes look better
-
+- Make navigation boxes look better (DONE)
+- 
 
 - Add a navigation box for a password and easter eggs? 
 

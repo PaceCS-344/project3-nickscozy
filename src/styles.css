@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 10px 40px;
   background-color: #3d5343;  /* CHANGED: added dark green background */
   /*border-bottom: .2px solid #040a06;*/
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* CHANGED: shadow under header */
@@ -27,8 +27,34 @@
   z-index: 300;
 }
 
+
 .header * {
   background-color: transparent;
+}
+
+.header h1 {
+  font-size: 30px;  /* CHANGED: smaller title text */
+}
+
+/* CHANGED: footer styles */
+.footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+  color: white;
+  font-size: 14px;
+  background-color: #3d5343;
+  /*box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2); */  /* shadow on top */
+}
+
+.footer * {
+  background-color: transparent;
+}
+
+/* CHANGED: dark mode footer */
+.dark-mode .footer {
+  background-color: #2a2a2a;
+  color: white;
 }
 
 a {
@@ -91,7 +117,7 @@ a {
 }
 
 .card-image {
-  width: 350px;
+  width: 300px;
   /* height: 200px; */
   object-fit: cover;       /* stops image from stretching */
   border-radius: 10px;     /* rounded corners */
@@ -176,7 +202,7 @@ a {
   padding: 20px;
   gap: 10px;
   position: fixed;        /* CHANGED: fixed so it overlays the page */
-  top: 81px;;
+  top: 70px;;
   left: 0;
   height: 100vh;          /* CHANGED: full height of screen */
   width: 220px;           /* CHANGED: width of the side menu */
@@ -293,4 +319,147 @@ html, body, #root {
 /* CHANGED: prevent dark mode from overriding overlay background */
 .dark-mode .menu-overlay {
   background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+
+
+
+
+/* Projects page */
+
+/* CHANGED: 2 cards per row using grid */
+.repo-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* CHANGED: exactly 2 equal columns */
+  gap: 20px;
+  padding: 20px;
+}
+
+.repo-card {
+  background-color: #d4edda;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s ease;
+}
+
+.repo-card:hover {
+  transform: scale(1.02);
+}
+
+.repo-name {
+  font-family: 'EB Garamond', serif;
+  font-size: 22px;
+  color: #2d2d2d;
+}
+
+.repo-description {
+  font-size: 14px;
+  color: #555;
+  flex: 1;
+}
+
+.repo-language {
+  font-size: 13px;
+  font-weight: bold;
+  color: #3d5343;
+}
+
+/* CHANGED: collaborators section */
+.repo-link {
+  display: inline-block;
+  margin-top: auto;
+  padding: 8px 16px;
+  background-color: #96caa5;
+  border-radius: 8px;
+  color: black;
+  font-weight: bold;
+  font-size: 13px;
+  text-align: center;
+}
+
+.repo-link:hover {
+  background-color: #ca9be9;
+}
+
+.loading-text {
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+}
+
+/* CHANGED: dark mode updates */
+.dark-mode .repo-card {
+  background-color: #3a3a3a;
+  color: white;
+}
+
+.dark-mode .repo-name {
+  color: white;
+}
+
+.dark-mode .repo-description {
+  color: #ccc;
+}
+
+.dark-mode .repo-language {
+  color: #96caa5;
+}
+
+
+.dark-mode .repo-link {
+  background-color: #444;
+  color: white;
+}
+
+.dark-mode .repo-link:hover {
+  background-color: #ca9be9;
+}
+
+.repo-collaborators {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.repo-collab-title {
+  font-weight: bold;
+  font-size: 13px;
+  color: #3d5343;
+}
+
+.collab-name {
+  font-size: 13px;
+  color: #115024;
+  text-decoration: none;
+}
+
+.collab-name:hover {
+  color: #ca9be9;
+}
+
+.collab-none {
+  font-size: 13px;
+  color: #777;
+}
+
+/* dark mode */
+.dark-mode .repo-collaborators {
+  background-color: #2d2d2d;
+}
+
+.dark-mode .repo-collab-title {
+  color: #96caa5;
+}
+
+.dark-mode .collab-name {
+  color: #96caa5;
+}
+
+.dark-mode .collab-none {
+  color: #aaa;
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom'; // CHANGED: added router imports
 import Home from './pages/Home';       // CHANGED: import pages
 import Resume from './pages/Resume';
@@ -20,7 +20,7 @@ export default function App() {
             ☰
           </button>
         <div className="white-text">
-          <h1>Nicholas Aramburu</h1>
+          <TypingName /> {/* CHANGED: replaced static h1 with typing component */}
         </div>
         </div>
         <nav className="box-container">
@@ -47,6 +47,36 @@ export default function App() {
         <Route path="/resume" element={<Resume />} />
         <Route path="/projects" element={<Projects />} />
       </Routes>
+    {/* CHANGED: added footer below routes so it appears on every page */}
+      <Footer />
+    </div>
+  );
+}
+
+// CHANGED: typing animation component
+function TypingName() {
+  const [text, setText] = useState('');
+  const fullText = 'Nicholas Aramburu';
+  
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setText(fullText.slice(0, i + 1));
+      i++;
+      if (i === fullText.length) clearInterval(interval);
+    }, 100); // CHANGED: 100ms between each letter, increase to slow down
+    return () => clearInterval(interval);
+  }, []);
+
+  return <h1 className="title-card">{text}</h1>;
+}
+
+
+// CHANGED: new footer component
+function Footer() {
+  return (
+    <div className="footer">
+      <p>© {new Date().getFullYear()} Nicholas Aramburu. All rights reserved.</p>
     </div>
   );
 }

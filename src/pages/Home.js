@@ -1,5 +1,6 @@
 import myImage from '../Images/IMG_0376.jpeg'; // CHANGED: updated image path
 
+
 export default function Home() {
   return (
     <div className="full-card">
