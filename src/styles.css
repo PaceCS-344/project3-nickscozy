@@ -463,3 +463,110 @@ html, body, #root {
 .dark-mode .collab-none {
   color: #aaa;
 }
+
+
+/* CHANGED: resume title at the top */
+.title-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* CHANGED: thin line that doesn't reach the edges */
+.title-divider {
+  border: none;
+  border-top: 2px solid #3d5343;
+  margin: 10px 30px;   /* CHANGED: 40px on left/right so it doesn't reach card edges */
+}
+
+/* CHANGED: body content pushed to the right */
+.resume-body {
+  display: flex;
+  justify-content: flex-end;  /* CHANGED: pushes content to the right */
+  padding-right: 40px;
+}
+
+/* dark mode */
+.dark-mode .resume-divider {
+  border-top: 2px solid #96caa5;
+}
+
+.resume-body > div {
+  width: 94%;  
+}
+
+
+/* Resume page */
+.resume-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.resume-contact {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.resume-section {
+  margin-bottom: 15px;
+}
+
+.resume-section-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+/* lines up title and date on opposite sides */
+.resume-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.resume-entry-header span {
+  font-size: 13px;
+  color: #555;
+  white-space: nowrap;
+}
+
+.resume-entry {
+  margin-bottom: 10px;
+}
+
+.resume-entry h3 {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.resume-entry p {
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.resume-entry ul {
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+.resume-entry ul li {
+  margin-top: 4px;
+}
+
+.resume-title-divider {
+  border: none;
+  border-top: 2px solid #3d5343;
+  margin: 10px 0px;   /* CHANGED: 40px on left/right so it doesn't reach card edges */
+}
+
+/* dark mode */
+.dark-mode .resume-contact {
+  color: #aaa;
+}
+
+.dark-mode .resume-entry-header span {
+  color: #aaa;
+}

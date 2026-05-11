@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 function RepoCard({ repo }) {
   const [collaborators, setCollaborators] = useState([]);
+  const [languages, setLanguages] = useState([]); 
 
   useEffect(() => {
     fetch(`https://api.github.com/repos/nickscozy/${repo.name}/collaborators`)
@@ -9,16 +10,28 @@ function RepoCard({ repo }) {
       .then(data => {
         if (Array.isArray(data)) setCollaborators(data);
       });
+
+    fetch(`https://api.github.com/repos/nickscozy/${repo.name}/languages`)
+      .then(res => res.json())
+      .then(data => {
+        if (data && typeof data === 'object') {
+          setLanguages(Object.keys(data)); // CHANGED: Object.keys gets all language names
+        }
+      });
   }, [repo.name]);
 
   return (
     <div className="repo-card">
       <h3 className="repo-name">{repo.name}</h3>
-      <p className="repo-description">{repo.description || 'No description available'}</p>
-      <p className="repo-language">Language: {repo.language || 'Not specified'}</p>
-
-      {/* CHANGED: collaborators listed below description, inside the same card */}
-      <div className="repo-collaborators">
+      <p className="repo-description">
+        Description: {repo.description || 'No description available'}
+      </p>
+      
+      <p className="repo-language">
+        Languages: {languages.length > 0 ? languages.join(', ') : 'Not specified'}
+      </p>
+    
+      {/* <div className="repo-collaborators">
         <p className="repo-collab-title">Collaborators:</p>
         {collaborators.length > 0 ? (
           collaborators.map(collab => (
@@ -29,7 +42,7 @@ function RepoCard({ repo }) {
         ) : (
           <p className="collab-none">None</p>
         )}
-      </div>
+      </div> */}
 
       <a href={repo.html_url} className="repo-link" target="_blank" rel="noreferrer">
         View on GitHub →
@@ -57,8 +70,9 @@ export default function Projects() {
 
   return (
     <div className="full-card">
-      <div className="card-text-section">
+      <div className="title-header">
         <h1 className="title-card">Projects</h1>
+        <hr className = "title-divider"/>
       </div>
       {loading ? (
         <p className="loading-text">Loading repos...</p>
