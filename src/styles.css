@@ -570,3 +570,83 @@ html, body, #root {
 .dark-mode .resume-entry-header span {
   color: #aaa;
 }
+
+
+
+
+
+/* Search bar */
+/* CHANGED: search bar in header */
+.search-bar {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  width: 200px;
+  background-color: #5a7a62;
+  color: white;
+  outline: none;
+}
+
+.search-bar::placeholder {
+  color: #ccc;
+}
+
+.search-bar:focus {
+  background-color: #6a8a72;
+}
+
+/* CHANGED: highlight color for matching text */
+.search-highlight {
+  background-color: yellow;
+  color: black;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+.dark-mode .search-bar {
+  background-color: #333;
+  color: white;
+}
+
+.dark-mode .search-highlight {
+  background-color: orange;
+  color: black;
+}
+
+
+
+
+/* CHANGED: github card layout */
+.github-card-body {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+/* CHANGED: github avatar styling */
+.github-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* CHANGED: stats section next to avatar */
+.github-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.github-stats p {
+  margin: 0;
+}
+
+/* dark mode */
+.dark-mode .github-avatar {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}

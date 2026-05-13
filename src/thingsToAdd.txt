@@ -1,8 +1,24 @@
 I'm having a lot of fun with this. Here's what I want to do
 - Make navigation boxes look better (DONE)
+- Have the cards fade in and fall from a bit above into place
 - 
+Home: Have most of the website live here. 
+- Languages and other things i have experience in
+- 
+styles:
+- Break up dark mode
+- define all colors at the same time. 
+    do like a: 
+    .thing .thing .thing {
+        color same
+    }
 
 - Add a navigation box for a password and easter eggs? 
+
+Fix: 
+- Search functionality. Does not search everything on entire screen nor every page. Also add functionality to bring you to the first mention of word and how many there are of it
+
+
 
 Lab 2 options (Choose 3):
 a.	Sticky header / headings / footer

@@ -7,7 +7,7 @@ import Projects from './pages/Projects';
 export default function App() {
   const [darkMode, setDarkMode] = useState(false); // CHANGED: track dark/light mode  
   const [menuOpen, setMenuOpen] = useState(false); // CHANGED: track menu open/close
-
+  const [searchText, setSearchText] = useState('');
 
   return (
     /* CHANGED: added light-mode class */
@@ -23,6 +23,14 @@ export default function App() {
           <TypingName /> {/* CHANGED: replaced static h1 with typing component */}
         </div>
         </div>
+        {/* CHANGED: search bar added to header */}
+        <input
+          type="text"
+          className="search-bar"
+          placeholder="Search..."
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
         <nav className="box-container">
           {/* CHANGED: removed Home, Resume, Projects from here */}
           <button className="box" onClick={() => setDarkMode(!darkMode)}>
@@ -43,9 +51,9 @@ export default function App() {
         </>
       )}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/projects" element={<Projects />} />
+        <Route path="/" element={<Home searchText={searchText} />} />
+        <Route path="/resume" element={<Resume searchText={searchText} />} />
+        <Route path="/projects" element={<Projects searchText={searchText} />} />
       </Routes>
     {/* CHANGED: added footer below routes so it appears on every page */}
       <Footer />
